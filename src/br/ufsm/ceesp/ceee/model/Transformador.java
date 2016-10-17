@@ -12,7 +12,7 @@ public class Transformador {
     private Float impCTE;
     private Float kvar;
     private Float kw;
-    private int clientes;
+    private Integer clientes;
 
     public Long getId() {
         return id;
@@ -71,11 +71,11 @@ public class Transformador {
         this.kw = kw;
     }
 
-    public int getClientes() {
+    public Integer getClientes() {
         return clientes;
     }
 
-    public void setClientes(int clientes) {
+    public void setClientes(Integer clientes) {
         this.clientes = clientes;
     }
 }
