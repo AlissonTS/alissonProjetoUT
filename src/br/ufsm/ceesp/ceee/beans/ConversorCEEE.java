@@ -46,11 +46,13 @@ public class ConversorCEEE {
 
                     transformador.setId(new Long(retorno[0]));
                     transformador.setLocalizacao(retorno[6]);
+
                     transformador.setKvan(new Float(retorno[8].replace(',', '.')));
                     transformador.setPotCTE(new Float(retorno[30].replace(',', '.')));
                     transformador.setImpCTE(new Float(retorno[31].replace(',', '.')));
                     transformador.setKvar(new Float(retorno[36].replace(',', '.')));
                     transformador.setKw(new Float(retorno[37].replace(',', '.')));
+
                     transformador.setClientes(new Integer(retorno[40]));
 
                     lista.add(transformador);
@@ -88,9 +90,9 @@ public class ConversorCEEE {
 
             fw.write("INSTAL_TRAFO;\r\n");
             for(Transformador tr : lista){
-                fw.write(tr.getId()+"; \t"+ tr.getLocalizacao()+"; \t"+tr.getKvan()+"; \t"+tr.getPotCTE()+"; " +
-                        "\t"+tr.getImpCTE()+"; " +
-                        "\t "+tr.getKvar()+"; \t"+tr.getKw()+"; \t"+tr.getClientes()+";\r\n");
+                fw.write("PAL - "+tr.getId()+"; \t"+ tr.getLocalizacao()+"; \t"+Float.toString(tr.getKvan()).replace('.', ',')+"; \t"+Float.toString(tr.getPotCTE()).replace('.', ',')+"; " +
+                        "\t"+Float.toString(tr.getImpCTE()).replace('.', ',')+"; " +
+                        "\t "+Float.toString(tr.getKvar()).replace('.', ',')+"; \t"+Float.toString(tr.getKw()).replace('.', ',')+"; \t"+tr.getClientes()+";\r\n");
             }
 
             fw.write("END;\r\n");
